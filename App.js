@@ -1,15 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View } from 'react-native';
 import { GameEngine } from 'react-native-game-engine';
 import entities from './entities';
+import Physics from './physics';
 
 export default function App() {
+  const [running, setRunning] = useState(false);
+
+  useEffect(() => {
+    setRunning(true);
+  }, []);
+
   return (
     <View style={{ flex: 1 }}>
       <StatusBar style='auto' hidden={true} />
       <GameEngine
+        systems={[Physics]}
         entities={entities()}
+        running={running}
         style={{
           position: 'absolute',
           top: 0,

@@ -14,6 +14,8 @@ const Bird = (props) => {
   return (
     <View
       style={{
+        backgroundColor: color,
+        borderRadius: 50,
         borderWidth: 1,
         borderColor: color,
         borderStyle: 'solid',
